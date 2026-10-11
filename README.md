@@ -139,8 +139,7 @@ Volume-mixer/
 │   └── CoreAudioHelpers.swift     Small wrappers around the C Core Audio API
 ├── docs/DEVELOPMENT.md            Developer notes, debugging, roadmap
 ├── LICENSE                        MIT
-├── CLAUDE.md                      Context for Claude Code
-└── .claude/agents/                Low-cost Claude Code helper agents
+└── CLAUDE.md                      Context for Claude Code
 ```
 
 ## Known limitations
