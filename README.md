@@ -35,12 +35,24 @@ A menu-bar app that gives every app its own volume slider and mute button, inspi
 
 ## Download
 
-Get the latest `Volume-Mixer-vX.Y.Z.zip` from
+**With Homebrew:**
+
+```bash
+brew install --cask dracuthang2000/tap/volume-mixer
+```
+
+**Or manually:** get the latest `Volume-Mixer-vX.Y.Z.zip` from
 [**Releases**](https://github.com/dracuthang2000/Volume-mixer/releases), unzip it, and move
 **Volume Mixer.app** to Applications.
 
-The app isn't notarized by Apple yet, so the first time you open it, right-click it and choose
-**Open** → **Open**. If macOS says it is damaged, run:
+The app isn't notarized by Apple yet, so macOS blocks it the first time:
+
+- **macOS 15 or later:** open the app once and close the warning. Then go to
+  **System Settings → Privacy & Security**, scroll down, click **Open Anyway** next to
+  "Volume Mixer", and confirm.
+- **macOS 14:** right-click the app and choose **Open** → **Open**.
+
+If macOS says the app "is damaged", run this once instead:
 
 ```bash
 xattr -dr com.apple.quarantine "/Applications/Volume Mixer.app"
@@ -129,6 +141,7 @@ Volume-mixer/
 ├── Resources/AppIcon.icns         App icon (AppIcon-1024.png is the full-size preview)
 ├── scripts/build-app.sh           Builds and signs "build/Volume Mixer.app"
 ├── scripts/make-icon.sh           Regenerates the icon from scripts/make-icon.swift
+├── scripts/make-social-preview.swift  Draws docs/social-preview.png (GitHub link preview)
 ├── Sources/VolumeMixer/
 │   ├── VolumeMixerApp.swift       @main entry: MenuBarExtra + AppDelegate
 │   ├── MixerView.swift            SwiftUI interface (System row + one row per app)

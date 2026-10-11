@@ -35,7 +35,11 @@ jobs:
             ### Install
             1. Download `Volume-Mixer-${{ github.ref_name }}.zip` below and unzip it.
             2. Move **Volume Mixer.app** to Applications.
-            3. This build isn't notarized by Apple, so the first time: right-click the app → **Open** → **Open**.
-               If macOS says the app is damaged, run `xattr -dr com.apple.quarantine "/Applications/Volume Mixer.app"`.
+            3. This build isn't notarized by Apple, so macOS blocks it the first time:
+               - **macOS 15+:** open it once, then **System Settings → Privacy & Security → Open Anyway**.
+               - **macOS 14:** right-click the app → **Open** → **Open**.
+               - If macOS says the app "is damaged", run `xattr -dr com.apple.quarantine "/Applications/Volume Mixer.app"`.
+
+            Or install with Homebrew: `brew install --cask dracuthang2000/tap/volume-mixer`
 
             See the [changelog](https://github.com/dracuthang2000/Volume-mixer/blob/main/CHANGELOG.md) for what's new.
