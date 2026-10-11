@@ -4,8 +4,13 @@
 
 # Volume Mixer for macOS
 
+[![Build](https://github.com/dracuthang2000/Volume-mixer/actions/workflows/build.yml/badge.svg)](https://github.com/dracuthang2000/Volume-mixer/actions/workflows/build.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![macOS 14.2+](https://img.shields.io/badge/macOS-14.2%2B-black?logo=apple)
+![Swift](https://img.shields.io/badge/Swift-6-orange?logo=swift)
+
 A menu-bar app that gives every app its own volume slider and mute button, inspired by the
-**Volume Mixer** in Windows. Native Swift, no drivers, no dependencies.
+**Volume Mixer** in Windows. Native Swift, no drivers, no dependencies. Free and open source.
 
 ```
 ┌──────────────────────────────────────┐
@@ -27,6 +32,21 @@ A menu-bar app that gives every app its own volume slider and mute button, inspi
   their app.
 - Per-app settings are **remembered** and applied again the next time the app plays.
 - Switching output device (for example to AirPods) is handled automatically.
+
+## Download
+
+Get the latest `Volume-Mixer-vX.Y.Z.zip` from
+[**Releases**](https://github.com/dracuthang2000/Volume-mixer/releases), unzip it, and move
+**Volume Mixer.app** to Applications.
+
+The app isn't notarized by Apple yet, so the first time you open it, right-click it and choose
+**Open** → **Open**. If macOS says it is damaged, run:
+
+```bash
+xattr -dr com.apple.quarantine "/Applications/Volume Mixer.app"
+```
+
+Or build it yourself (below). It only takes a minute.
 
 ## Requirements
 
@@ -143,6 +163,12 @@ Volume-mixer/
 | Red error text in the mixer | It names the app and the Core Audio error code. Usually permission, or the output device was disconnected. |
 | An app isn't listed | It only appears while playing, and for 20 seconds after it stops. |
 | System slider is greyed out | That output device (some HDMI/USB devices) has no software volume control. |
+
+## Contributing
+
+Contributions are welcome: bug reports, ideas, and pull requests. Please read
+[CONTRIBUTING.md](CONTRIBUTING.md) and follow the [Code of Conduct](CODE_OF_CONDUCT.md).
+Report security issues privately as described in [SECURITY.md](SECURITY.md).
 
 ## License
 

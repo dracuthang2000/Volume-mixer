@@ -1,0 +1,49 @@
+name: Bug report
+description: Something doesn't work as expected
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Play a video in Chrome
+        2. Lower Chrome to 30%
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: "macOS 15.1"
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Output device
+      placeholder: "MacBook speakers, AirPods Pro, USB DAC…"
+  - type: input
+    id: app
+    attributes:
+      label: Affected app(s)
+      placeholder: "Google Chrome, Spotify…"
+  - type: input
+    id: version
+    attributes:
+      label: Volume Mixer version or commit
+      placeholder: "0.1.0 or a commit hash"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error text or logs (optional)
+      description: Any red error text shown in the mixer, or output of `log stream --predicate 'process == "VolumeMixer"'`.
+      render: text

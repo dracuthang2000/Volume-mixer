@@ -1,0 +1,41 @@
+name: Release
+
+# Push a tag like v0.1.0 to build the app and attach it to a GitHub Release.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set version from tag
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $VERSION" Resources/Info.plist
+          /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $GITHUB_RUN_NUMBER" Resources/Info.plist
+
+      - name: Build app bundle
+        run: ./scripts/build-app.sh release
+
+      - name: Zip
+        run: ditto -c -k --keepParent "build/Volume Mixer.app" "Volume-Mixer-${GITHUB_REF_NAME}.zip"
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: Volume-Mixer-${{ github.ref_name }}.zip
+          generate_release_notes: true
+          body: |
+            ### Install
+            1. Download `Volume-Mixer-${{ github.ref_name }}.zip` below and unzip it.
+            2. Move **Volume Mixer.app** to Applications.
+            3. This build isn't notarized by Apple, so the first time: right-click the app → **Open** → **Open**.
+               If macOS says the app is damaged, run `xattr -dr com.apple.quarantine "/Applications/Volume Mixer.app"`.
+
+            See the [changelog](https://github.com/dracuthang2000/Volume-mixer/blob/main/CHANGELOG.md) for what's new.
