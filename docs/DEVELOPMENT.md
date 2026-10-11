@@ -85,14 +85,15 @@ shows the error in the interface.
 
 ## Repository rules (maintainer)
 
-The GitHub rulesets live in `.github/rulesets/` so they are versioned with the code. GitHub
-doesn't apply them from the repo automatically; import each file once in
-**Settings → Rules → Rulesets → New ruleset → Import a ruleset**.
+The repository uses two GitHub rulesets, managed in
+**Settings → Rules → Rulesets**. The maintainer keeps their JSON exports locally in
+`.github/rulesets/`, which is git-ignored. To recreate one, use
+**New ruleset → Import a ruleset**.
 
 | Ruleset | What it enforces |
 |---|---|
 | `protect-main.json` | `main` can't be deleted or force-pushed. Changes need a pull request that passes the **Build** check. Repository admins can bypass (so the maintainer can still push directly). |
 | `protect-release-tags.json` | Only admins can create `v*` tags (each one publishes a release). Existing release tags can't be moved or deleted. |
 
-After changing a ruleset in the GitHub settings, export it (**⋯ → Export ruleset**) and
-commit the JSON here so the two stay in sync.
+After changing a ruleset in the GitHub settings, export it again (**⋯ → Export ruleset**)
+to keep the local copy up to date.

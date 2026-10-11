@@ -7,3 +7,6 @@ DerivedData/
 
 # Local Claude Code agent definitions (kept on this machine only)
 .claude/agents/
+
+# GitHub ruleset exports (import-only, kept on this machine)
+.github/rulesets/
