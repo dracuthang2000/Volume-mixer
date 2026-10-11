@@ -6,6 +6,19 @@ All notable changes to this project are listed here. The format follows
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-10-11
+
+### Fixed
+
+- Release builds are now universal: they run on both Apple silicon and Intel Macs
+  (0.1.0 ran on Apple silicon only).
+- Install steps for macOS 15+ ("Open Anyway" in Privacy & Security).
+
+### Added
+
+- Homebrew install: `brew install --cask dracuthang2000/tap/volume-mixer`.
+- Social preview image for the GitHub repository.
+
 ## [0.1.0] - 2026-10-11
 
 ### Added

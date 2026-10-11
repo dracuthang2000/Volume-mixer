@@ -64,7 +64,7 @@ Or build it yourself (below). It only takes a minute.
 
 | | |
 |---|---|
-| macOS | **14.2 or later** (uses Core Audio process taps) |
+| macOS | **14.2 or later** (uses Core Audio process taps), Apple silicon or Intel |
 | Tools | Xcode **or** just the Command Line Tools (`xcode-select --install`) |
 | Language | Swift 6 toolchain (the code builds in Swift 5 language mode) |
 
